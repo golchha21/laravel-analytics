@@ -5,10 +5,13 @@ namespace Spatie\Analytics;
 use Carbon\Carbon;
 use DateTimeInterface;
 use Google\Analytics\Data\V1beta\DateRange;
+use Illuminate\Support\Traits\Macroable;
 use Spatie\Analytics\Exceptions\InvalidPeriod;
 
 class Period
 {
+    use Macroable;
+
     public DateTimeInterface $startDate;
 
     public DateTimeInterface $endDate;
