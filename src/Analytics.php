@@ -13,8 +13,7 @@ class Analytics
     public function __construct(
         protected AnalyticsClient $client,
         protected string $propertyId,
-    ) {
-    }
+    ) {}
 
     public function setPropertyId(string $propertyId): self
     {
@@ -214,6 +213,7 @@ class Analytics
         int $offset = 0,
         ?FilterExpression $dimensionFilter = null,
         bool $keepEmptyRows = false,
+        ?FilterExpression $metricFilter = null,
     ): Collection {
         return $this->client->get(
             $this->propertyId,
@@ -224,7 +224,8 @@ class Analytics
             $orderBy,
             $offset,
             $dimensionFilter,
-            $keepEmptyRows
+            $keepEmptyRows,
+            $metricFilter
         );
     }
 }
